@@ -1,0 +1,38 @@
+Resultado esperado
+------------------
+* A partir de um input de um arquivo de log do formato acima, montar o resultado da corrida com as seguintes informa??es: **Posi??o Chegada**, **C?digo Piloto**, **Nome Piloto**, **Qtde Voltas Completadas** e **Tempo Total de Prova**.
+
+Observa??es
+------------
+* A primeira linha do arquivo pode ser desconsiderada (Hora, Piloto, N? Volta, Tempo Volta, Velocidade m?dia da volta).
+* A corrida termina quando o primeiro colocado completa 4 voltas
+
+
+B?nus
+-----
+N?o obrigat?rio. Fa?a apenas caso se identifique com o problema ou se achar que h? algo interessante a ser mostrado na solu??o
+
+**********************************************
+* Descobrir a melhor volta de cada piloto - ok
+***********************************************
+* Descobrir a melhor volta da corrida
+************************************************
+* Calcular a velocidade m?dia de cada piloto durante toda corrida
+************************************************************************
+* Descobrir quanto tempo cada piloto chegou ap?s o vencedor
+
+
+
+SOLU??O
+=======
+* A solu??o poder? ser desenvolvida em qualquer linguagem da sua escolha;
+* Seja criativo;
+* Uma outra pessoa estar? lendo o que voc? fez, portanto, lembre-se de buscar trazer a sem?ntica do problema no seu c?digo;
+* Crie testes;
+* N?o ? necess?rio utilizar nenhum framework, procure utilizar os recursos da linguagem;
+
+
+ENTREGA
+=======
+* **N?o** fa?a um fork desse projeto. Crie um reposit?rio no seu perfil do GitHub e nos envie a url;
+* Crie um arquivo SUAS-INSTRU??ES.txt para adicionar algum coment?rio/observa??o que achar importante;
