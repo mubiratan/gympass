@@ -25,7 +25,6 @@ public class CalculaTempos {
             PilotoDTO pilotoTempoSoma = new PilotoDTO();
             // Para cada piloto, soma as voltas
             for (PilotoDTO p1 : pilotoDTOList) {
-
                 // Soma tempos do piloto
                 if (p.equalsIgnoreCase(p1.getCodigoPiloto())) {
                     tempoTotal = tempoTotal.plusMinutes(p1.getTempoVolta().getMinute()).
@@ -78,7 +77,7 @@ public class CalculaTempos {
         List<PilotoDTO> pilotoList = new ArrayList<>();
 
         for(PilotoDTO p : pilotoDTOList) {
-            if(isVencedor) {
+            if(isVencedor && p.getQuantidadeVoltas() == 4) {
                 p.setTempoAposVencedor(tempoVencedor);
                 tempoVencedor = p.getTempoTotal();
                 isVencedor = false;
