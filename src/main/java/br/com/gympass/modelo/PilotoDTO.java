@@ -107,8 +107,6 @@ public class PilotoDTO  implements Comparable<PilotoDTO> {
 
     public void setQuantidadeVoltas(int quantidadeVoltas) { this.quantidadeVoltas = quantidadeVoltas; }
 
-
-
     @Override
     public int compareTo(PilotoDTO o) {
         if (this.tempoTotal.isAfter(o.getTempoTotal()))
