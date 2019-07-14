@@ -62,6 +62,7 @@ public class Arquivo {
     // Grava arquivo final
     public void gravaArquivo(List<PilotoDTO> pilotos, MelhorVoltaDTO melhorVoltaDTO) {
         String espaco = " ";
+        final int qtdVoltas = 4;
 
         DecimalFormat df = new DecimalFormat("###,#00.000");
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_TIME;
@@ -80,40 +81,43 @@ public class Arquivo {
             int posicaoChegada = 1;
 
             for(PilotoDTO p : pilotos) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(espaco.repeat(8)).append(posicaoChegada);
-                sb.append(espaco.repeat(21)).append(p.getCodigoPiloto());
-                sb.append(espaco.repeat(10)).append(p.getNome());
+                // Grava apenas pilotos quie completaram as 4 voltas
+                if (p.getQuantidadeVoltas() == qtdVoltas) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append(espaco.repeat(8)).append(posicaoChegada);
+                    sb.append(espaco.repeat(21)).append(p.getCodigoPiloto());
+                    sb.append(espaco.repeat(10)).append(p.getNome());
 
-                sb.append(espaco.repeat(25 - p.getNome().length())).
-                        append(p.getQuantidadeVoltas());
+                    sb.append(espaco.repeat(25 - p.getNome().length())).
+                            append(p.getQuantidadeVoltas());
 
-                sb.append(espaco.repeat(15)).
-                        append(p.getTempoTotal().format(formatter).
-                        subSequence(3, p.getTempoTotal().toString().length()-1));
+                    sb.append(espaco.repeat(15)).
+                            append(p.getTempoTotal().format(formatter).
+                                    subSequence(3, p.getTempoTotal().toString().length() - 1));
 
-                sb.append(espaco.repeat(31 - p.getTempoTotal().toString().length())).
-                        append(p.getMelhorVolta().format(formatter).
-                        subSequence(3, p.getMelhorVolta().toString().length()-1));
+                    sb.append(espaco.repeat(31 - p.getTempoTotal().toString().length())).
+                            append(p.getMelhorVolta().format(formatter).
+                                    subSequence(3, p.getMelhorVolta().toString().length() - 1));
 
-                sb.append(espaco.repeat(10)).append(df.format(p.getVelocidadeMedia()));
+                    sb.append(espaco.repeat(10)).append(df.format(p.getVelocidadeMedia()));
 
-                sb.append(espaco.repeat(15)).append(p.getTempoAposVencedor().format(formatter).
-                        subSequence(3, p.getTempoAposVencedor().toString().length()-1));
+                    sb.append(espaco.repeat(15)).append(p.getTempoAposVencedor().format(formatter).
+                            subSequence(3, p.getTempoAposVencedor().toString().length() - 1));
 
-                gravarArq.write(sb.toString());
-                gravarArq.println("");
-                posicaoChegada++;
+                    gravarArq.write(sb.toString());
+                    gravarArq.println("");
+                    posicaoChegada++;
+                }
             }
+                // Melhor Volta da Corrida
+                gravarArq.println("");
+                gravarArq.write("Melhor volta da corrida: " + melhorVoltaDTO.getNomePiloto() + " : "
+                        + melhorVoltaDTO.getMelhorVoltaCorrida().format(formatter)
+                        .subSequence(3, melhorVoltaDTO.getMelhorVoltaCorrida().toString().length() - 1));
 
-            // Melhor Volta da Corrida
-            gravarArq.println("");
-            gravarArq.write("Melhor volta da corrida: " + melhorVoltaDTO.getNomePiloto() + " : "
-                    + melhorVoltaDTO.getMelhorVoltaCorrida().format(formatter)
-                        .subSequence(3, melhorVoltaDTO.getMelhorVoltaCorrida().toString().length()-1));
 
-            arq.flush();
-            arq.close();
+                arq.flush();
+                arq.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
