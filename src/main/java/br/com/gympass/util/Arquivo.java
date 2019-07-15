@@ -1,7 +1,6 @@
 package br.com.gympass.util;
 
 import br.com.gympass.modelo.LinhaDTO;
-import br.com.gympass.modelo.MelhorVoltaDTO;
 import br.com.gympass.modelo.PilotoDTO;
 
 import java.io.*;
@@ -12,8 +11,8 @@ import java.util.List;
 
 public class Arquivo {
 
-    String caminhoArquivo = "/home/marcio/estudos/gympass/";
-    //String caminhoArquivo = "C:\\estudos\\gympass\\";
+    String caminhoArquivo = "/home/marcio/estudos/gympass/"; // Linux
+    //String caminhoArquivo = "C:\\estudos\\gympass\\"; // Windows
 
     // Carrega arquivo de log independente
     // da quantidade de espaços entre as informações
@@ -60,7 +59,7 @@ public class Arquivo {
     }
 
     // Grava arquivo final
-    public void gravaArquivo(List<PilotoDTO> pilotos, MelhorVoltaDTO melhorVoltaDTO) {
+    public void gravaArquivo(List<PilotoDTO> pilotos, List<PilotoDTO> melhorVolta) {
         String espaco = " ";
         final int qtdVoltas = 4;
 
@@ -111,9 +110,9 @@ public class Arquivo {
             }
                 // Melhor Volta da Corrida
                 gravarArq.println("");
-                gravarArq.write("Melhor volta da corrida: " + melhorVoltaDTO.getNomePiloto() + " : "
-                        + melhorVoltaDTO.getMelhorVoltaCorrida().format(formatter)
-                        .subSequence(3, melhorVoltaDTO.getMelhorVoltaCorrida().toString().length() - 1));
+                gravarArq.write("Melhor volta da corrida: " + melhorVolta.get(0).getNome() + " : "
+                        + melhorVolta.get(0).getMelhorVoltaCorrida().format(formatter)
+                        .subSequence(3, melhorVolta.get(0).getMelhorVoltaCorrida().toString().length() - 1));
 
 
                 arq.flush();

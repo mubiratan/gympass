@@ -15,6 +15,7 @@ public class PilotoDTO  implements Comparable<PilotoDTO> {
     private LocalTime melhorVolta;
     private Double velocidadeMediaCorrida;
     private LocalTime tempoAposVencedor;
+    private LocalTime melhorVoltaCorrida;
 
     public PilotoDTO(){}
 
@@ -94,6 +95,10 @@ public class PilotoDTO  implements Comparable<PilotoDTO> {
     public LocalTime getTempoAposVencedor() { return tempoAposVencedor; }
 
     public void setTempoAposVencedor(LocalTime tempoAposVencedor) { this.tempoAposVencedor = tempoAposVencedor; }
+
+    public LocalTime getMelhorVoltaCorrida() { return melhorVoltaCorrida; }
+
+    public void setMelhorVoltaCorrida(LocalTime melhorVoltaCorrida) { this.melhorVoltaCorrida = melhorVoltaCorrida; }
 
     public LocalTime getTempoTotal() {
         return tempoTotal;

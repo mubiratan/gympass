@@ -1,20 +1,24 @@
 package br.com.gympass;
 
-import br.com.gympass.service.CalculaTempos;
 import br.com.gympass.modelo.LinhaDTO;
-import br.com.gympass.modelo.MelhorVoltaDTO;
 import br.com.gympass.modelo.PilotoDTO;
+import br.com.gympass.service.CalculaTempos;
+import br.com.gympass.service.MelhorVoltaCorrida;
+import br.com.gympass.service.SomaTempos;
+import br.com.gympass.service.TempoAposVencedor;
 import br.com.gympass.util.Arquivo;
 import org.junit.Assert;
 import org.junit.Test;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GympassPrincipal {
 
     @Test
     public void resultadoCorridaTest() throws IOException {
+
         // Lê arquivo de log
         Arquivo arquivo = new Arquivo();
 
@@ -29,29 +33,21 @@ public class GympassPrincipal {
         }
         Assert.assertNotNull(pilotoDTOList);
 
-        // Cria lista sem pilotos duplicados para realizar a soma de tempos
-        Set<String> pilotos = new HashSet<>();
-        for(PilotoDTO p : pilotoDTOList) {
-            pilotos.add(p.getCodigoPiloto());
-        }
-        Assert.assertNotNull(pilotos);
+        CalculaTempos calculaTempos = new CalculaTempos();
 
         // Soma os tempos de cada piloto
-        CalculaTempos pilotoTempos = new CalculaTempos();
-        List<PilotoDTO> pilotoTempo = pilotoTempos.somaTempos(pilotos, pilotoDTOList);
+        List<PilotoDTO> pilotoTempos = calculaTempos.calcular(pilotoDTOList, new SomaTempos());
+        Assert.assertNotNull(pilotoTempos);
 
         // Retorna melhor volta da corrida
-        MelhorVoltaDTO melhorVoltaDTO = pilotoTempos.retornaMelhorVoltaCorrida(pilotoDTOList);
-        Assert.assertNotNull(melhorVoltaDTO);
-
-        //Ordena os pilotos do menor tempo para o maior
-        Collections.sort(pilotoTempo);
+        List<PilotoDTO>  melhorVoltaCorrida = calculaTempos.calcular(pilotoDTOList, new MelhorVoltaCorrida());
+        Assert.assertNotNull(melhorVoltaCorrida);
 
         // Calcula tempo dos pilostos após vencedor
-        List<PilotoDTO> pilotoFinal = pilotoTempos.calculaTempoAposVencedor(pilotoTempo);
+        List<PilotoDTO> pilotoFinal = calculaTempos.calcular(pilotoTempos, new TempoAposVencedor());
         Assert.assertNotNull(pilotoFinal);
 
         // Grava arquivo final
-        arquivo.gravaArquivo(pilotoFinal, melhorVoltaDTO);
+        arquivo.gravaArquivo(pilotoFinal, melhorVoltaCorrida);
     }
 }
