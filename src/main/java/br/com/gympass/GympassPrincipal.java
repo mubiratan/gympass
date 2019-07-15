@@ -21,7 +21,6 @@ public class GympassPrincipal {
 
         // Lê arquivo de log
         Arquivo arquivo = new Arquivo();
-
         List<LinhaDTO> linhas =  arquivo.abreArquivo();
         Assert.assertNotNull(linhas);
 
