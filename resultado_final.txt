@@ -1,8 +1,8 @@
 Posição Chegada        Código Piloto       Nome Piloto     Voltas Completadas       Tempo Total de Prova       Melhor Volta       Velocidade Média       Tempo Após Vencedor
-        1                     033          R.BARRICHELLO            4               03:15.00000108             00:03.00000071          43.468               0
-        2                     038          F.MASS                   4               04:09.00000257             01:02.00000076          44.246               00:54.00000149
-        3                     002          K.RAIKKONEN              4               04:13.00000215             01:03.00000007          43.627               00:58.00000107
-        4                     023          M.WEBBER                 4               04:16.00000172             01:04.00000021          43.191               01:01.00000064
-        5                     015          F.ALONSO                 4               04:53.00000122             01:07.00000001          38.066               01:38.00000014
+        1                     038          F.MASS                   4               04:09.00000257             01:02.00000076          44.246               0
+        2                     002          K.RAIKKONEN              4               04:13.00000215             01:03.00000007          43.627               00:03.99999957
+        3                     033          R.BARRICHELLO            4               04:15.00000108             01:03.00000071          43.468               00:05.99999850
+        4                     023          M.WEBBER                 4               04:16.00000172             01:04.00000021          43.191               00:06.99999914
+        5                     015          F.ALONSO                 4               04:53.00000122             01:07.00000001          38.066               00:43.99999864
 
-Melhor volta da corrida: R.BARRICHELLO : 00:03.00000071
+Melhor volta da corrida: F.MASSA : 01:02.00000076
