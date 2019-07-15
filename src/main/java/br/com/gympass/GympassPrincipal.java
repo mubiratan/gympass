@@ -2,7 +2,7 @@ package br.com.gympass;
 
 import br.com.gympass.modelo.LinhaDTO;
 import br.com.gympass.modelo.PilotoDTO;
-import br.com.gympass.service.CalculaTempos;
+import br.com.gympass.service.CalculadorTempos;
 import br.com.gympass.service.MelhorVoltaCorrida;
 import br.com.gympass.service.SomaTempos;
 import br.com.gympass.service.TempoAposVencedor;
@@ -33,7 +33,7 @@ public class GympassPrincipal {
         }
         Assert.assertNotNull(pilotoDTOList);
 
-        CalculaTempos calculaTempos = new CalculaTempos();
+        CalculadorTempos calculaTempos = new CalculadorTempos();
 
         // Soma os tempos de cada piloto
         List<PilotoDTO> pilotoTempos = calculaTempos.calcular(pilotoDTOList, new SomaTempos());
