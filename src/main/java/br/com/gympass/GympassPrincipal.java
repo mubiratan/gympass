@@ -19,7 +19,7 @@ public class GympassPrincipal {
     @Test
     public void resultadoCorridaTest() throws IOException {
 
-        // Lê arquivo de log
+        // Lê arquivo de log 1
         Arquivo arquivo = new Arquivo();
         List<LinhaDTO> linhas =  arquivo.abreArquivo();
         Assert.assertNotNull(linhas);
