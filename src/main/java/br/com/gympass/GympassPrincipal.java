@@ -38,7 +38,7 @@ public class GympassPrincipal {
         List<PilotoDTO> pilotoTempos = calculaTempos.calcular(pilotoDTOList, new SomaTempos());
         Assert.assertNotNull(pilotoTempos);
 
-        // Retorna melhor volta da corrida
+        // Retorna melhor volta da corrida 
         List<PilotoDTO>  melhorVoltaCorrida = calculaTempos.calcular(pilotoDTOList, new MelhorVoltaCorrida());
         Assert.assertNotNull(melhorVoltaCorrida);
 
